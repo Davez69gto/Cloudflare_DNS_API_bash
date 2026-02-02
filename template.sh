@@ -33,7 +33,7 @@ old_ip=$(cat $log_ip)
 ip=$(curl -s -X GET https://api.ipify.org)
 
 ## Checking if IP changed since last update
-if [[ ! $ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]] || [ $ip = $old_ip ]; then
+if [[ ! $ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]] || [[ $ip = $old_ip ]]; then
 echo -en "$dt - Previous IP:$old_ip\n$dt - Current  IP:$ip\n$dt - No Changes Required....\n" >> $log
 echo "$(tail -n 1000 $log)" > $log
   exit
